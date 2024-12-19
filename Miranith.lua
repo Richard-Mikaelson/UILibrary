@@ -1,3 +1,4 @@
+local success, result = pcall(function()
 local MiranithLib = { 
 	Options = {}, 
 	Folder = "MiranithLib", 
@@ -5879,3 +5880,7 @@ function MiranithLib:Demo()
 end
 
 return MiranithLib
+end)
+if success then
+else
+end
