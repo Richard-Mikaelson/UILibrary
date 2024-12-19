@@ -1,20 +1,19 @@
-local success, result = pcall(function()
-local MiranithLib = { 
+local MacLib = { 
 	Options = {}, 
-	Folder = "MiranithLib", 
+	Folder = "Maclib", 
 	GetService = function(service)
 		return cloneref and cloneref(game:GetService(service)) or game:GetService(service)
 	end
 }
 
 --// Services
-local TweenService = MiranithLib.GetService("TweenService")
-local RunService = MiranithLib.GetService("RunService")
-local HttpService = MiranithLib.GetService("HttpService")
-local ContentProvider = MiranithLib.GetService("ContentProvider")
-local UserInputService = MiranithLib.GetService("UserInputService")
-local Lighting = MiranithLib.GetService("Lighting")
-local Players = MiranithLib.GetService("Players")
+local TweenService = MacLib.GetService("TweenService")
+local RunService = MacLib.GetService("RunService")
+local HttpService = MacLib.GetService("HttpService")
+local ContentProvider = MacLib.GetService("ContentProvider")
+local UserInputService = MacLib.GetService("UserInputService")
+local Lighting = MacLib.GetService("Lighting")
+local Players = MacLib.GetService("Players")
 
 --// Variables
 local isStudio = RunService:IsStudio()
@@ -57,7 +56,7 @@ local function GetGui()
 	local parent = RunService:IsStudio() 
 		and LocalPlayer:FindFirstChild("PlayerGui")
 		or (gethui and gethui())
-		or (cloneref and cloneref(MiranithLib.GetService("CoreGui")) or MiranithLib.GetService("CoreGui"))
+		or (cloneref and cloneref(MacLib.GetService("CoreGui")) or MacLib.GetService("CoreGui"))
 
 	newGui.Parent = parent
 	return newGui
@@ -68,7 +67,7 @@ local function Tween(instance, tweeninfo, propertytable)
 end
 
 --// Library Functions
-function MiranithLib:Window(Settings)
+function MacLib:Window(Settings)
 	local WindowFunctions = {Settings = Settings}
 	if Settings.AcrylicBlur ~= nil then
 		acrylicBlur = Settings.AcrylicBlur
@@ -76,7 +75,7 @@ function MiranithLib:Window(Settings)
 		acrylicBlur = true
 	end
 
-	local MiranithLib = GetGui()
+	local macLib = GetGui()
 
 	local notifications = Instance.new("Frame")
 	notifications.Name = "Notifications"
@@ -85,7 +84,7 @@ function MiranithLib:Window(Settings)
 	notifications.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	notifications.BorderSizePixel = 0
 	notifications.Size = UDim2.fromScale(1, 1)
-	notifications.Parent = MiranithLib
+	notifications.Parent = macLib
 	notifications.ZIndex = 2
 
 	local notificationsUIListLayout = Instance.new("UIListLayout")
@@ -161,7 +160,7 @@ function MiranithLib:Window(Settings)
 	dividerInteract.Position = UDim2.fromScale(0.5, 0)
 	dividerInteract.Size = UDim2.new(1, 6, 1, 0)
 	dividerInteract.Text = ""
-	dividerInteract.TextColor3 = Color3.fromRGB(20, 20, 20)
+	dividerInteract.TextColor3 = Color3.fromRGB(0, 0, 0)
 	dividerInteract.TextSize = 14
 	dividerInteract.Parent = divider
 
@@ -213,7 +212,7 @@ function MiranithLib:Window(Settings)
 	exit.TextColor3 = Color3.fromRGB(0, 0, 0)
 	exit.TextSize = 14
 	exit.AutoButtonColor = false
-	exit.BackgroundColor3 =  Color3.fromRGB(20, 20, 20)
+	exit.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 	exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	exit.BorderSizePixel = 0
 
@@ -231,7 +230,7 @@ function MiranithLib:Window(Settings)
 	minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
 	minimize.TextSize = 14
 	minimize.AutoButtonColor = false
-	minimize.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	minimize.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
 	minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	minimize.BorderSizePixel = 0
 	minimize.LayoutOrder = 1
@@ -250,7 +249,7 @@ function MiranithLib:Window(Settings)
 	maximize.TextColor3 = Color3.fromRGB(0, 0, 0)
 	maximize.TextSize = 14
 	maximize.AutoButtonColor = false
-	maximize.BackgroundColor3 =  Color3.fromRGB(20, 20, 20)
+	maximize.BackgroundColor3 = Color3.fromRGB(119, 174, 94)
 	maximize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	maximize.BorderSizePixel = 0
 	maximize.LayoutOrder = 1
@@ -924,7 +923,7 @@ function MiranithLib:Window(Settings)
 	globalSettingsUIScale.Scale = 1e-07
 	globalSettingsUIScale.Parent = globalSettings
 	globalSettings.Parent = base
-	base.Parent = MiranithLib
+	base.Parent = macLib
 
 	function WindowFunctions:UpdateTitle(NewTitle)
 		title.Text = NewTitle
@@ -1687,7 +1686,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = ButtonFunctions
+						MacLib.Options[Flag] = ButtonFunctions
 					end
 					return ButtonFunctions
 				end
@@ -1826,7 +1825,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = ToggleFunctions
+						MacLib.Options[Flag] = ToggleFunctions
 					end
 					return ToggleFunctions
 				end
@@ -2087,7 +2086,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = SliderFunctions
+						MacLib.Options[Flag] = SliderFunctions
 					end
 					return SliderFunctions
 				end
@@ -2263,7 +2262,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = InputFunctions
+						MacLib.Options[Flag] = InputFunctions
 					end
 					return InputFunctions
 				end
@@ -2442,7 +2441,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = KeybindFunctions
+						MacLib.Options[Flag] = KeybindFunctions
 					end
 
 					return KeybindFunctions
@@ -3014,7 +3013,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = DropdownFunctions
+						MacLib.Options[Flag] = DropdownFunctions
 					end
 
 					return DropdownFunctions
@@ -4299,7 +4298,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = ColorpickerFunctions
+						MacLib.Options[Flag] = ColorpickerFunctions
 					end
 					return ColorpickerFunctions
 				end
@@ -4353,7 +4352,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = HeaderFunctions
+						MacLib.Options[Flag] = HeaderFunctions
 					end
 					return HeaderFunctions
 				end
@@ -4397,7 +4396,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = LabelFunctions
+						MacLib.Options[Flag] = LabelFunctions
 					end
 					return LabelFunctions
 				end
@@ -4441,7 +4440,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = SubLabelFunctions
+						MacLib.Options[Flag] = SubLabelFunctions
 					end
 					return SubLabelFunctions
 				end
@@ -4517,7 +4516,7 @@ function MiranithLib:Window(Settings)
 					end
 
 					if Flag then
-						MiranithLib.Options[Flag] = ParagraphFunctions
+						MacLib.Options[Flag] = ParagraphFunctions
 					end
 					return ParagraphFunctions
 				end
@@ -4659,7 +4658,7 @@ function MiranithLib:Window(Settings)
 					Name = "Select Config",
 					Multi = false,
 					Required = false,
-					Options = MiranithLib:RefreshConfigList(),
+					Options = MacLib:RefreshConfigList(),
 					Callback = function(Value)
 						selectedConfig = Value
 					end,
@@ -4670,44 +4669,44 @@ function MiranithLib:Window(Settings)
 					Callback = function()
 						if not inputPath or string.gsub(inputPath, " ", "") == "" then
 							WindowFunctions:Notify({
-								Title = "Interface",
+								Title = "Miranith",
 								Description = "Config name cannot be empty."
 							})
 							return
 						end
 
-						local success, returned = MiranithLib:SaveConfig(inputPath)
+						local success, returned = MacLib:SaveConfig(inputPath)
 						if not success then
 							WindowFunctions:Notify({
-								Title = "Interface",
+								Title = "Miranith",
 								Description = "Unable to save config, return error: " .. returned
 							})
 						end
 
 						WindowFunctions:Notify({
-							Title = "Interface",
+							Title = "Miranith",
 							Description = string.format("Created config %q", inputPath),
 						})
 
 						configSelection:ClearOptions()
-						configSelection:InsertOptions(MiranithLib:RefreshConfigList())
+						configSelection:InsertOptions(MacLib:RefreshConfigList())
 					end,
 				})
 
 				configSection:Button({
 					Name = "Load Config",
 					Callback = function()
-						local success, returned = MiranithLib:LoadConfig(configSelection.Value)
+						local success, returned = MacLib:LoadConfig(configSelection.Value)
 						if not success then
 							WindowFunctions:Notify({
-								Title = "Interface",
+								Title = "Miranith",
 								Description = "Unable to load config, return error: " .. returned
 							})
 							return
 						end
 
 						WindowFunctions:Notify({
-							Title = "Interface",
+							Title = "Miranith",
 							Description = string.format("Loaded config %q", configSelection.Value),
 						})
 					end,
@@ -4716,17 +4715,17 @@ function MiranithLib:Window(Settings)
 				configSection:Button({
 					Name = "Overwrite Config",
 					Callback = function()
-						local success, returned = MiranithLib:SaveConfig(configSelection.Value)
+						local success, returned = MacLib:SaveConfig(configSelection.Value)
 						if not success then
 							WindowFunctions:Notify({
-								Title = "Interface",
+								Title = "Miranith",
 								Description = "Unable to overwrite config, return error: " .. returned
 							})
 							return
 						end
 
 						WindowFunctions:Notify({
-							Title = "Interface",
+							Title = "Miranith",
 							Description = string.format("Overwrote config %q", configSelection.Value),
 						})
 					end,
@@ -4736,7 +4735,7 @@ function MiranithLib:Window(Settings)
 					Name = "Refresh Config List",
 					Callback = function()
 						configSelection:ClearOptions()
-						configSelection:InsertOptions(MiranithLib:RefreshConfigList())
+						configSelection:InsertOptions(MacLib:RefreshConfigList())
 					end,
 				})
 
@@ -4746,10 +4745,10 @@ function MiranithLib:Window(Settings)
 					Name = "Set as autoload",
 					Callback = function()
 						local name = configSelection.Value
-						writefile(MiranithLib.Folder .. "/settings/autoload.txt", name)
+						writefile(MacLib.Folder .. "/settings/autoload.txt", name)
 						autoloadLabel:UpdateName("Autoload config: " .. name)
 						WindowFunctions:Notify({
-							Title = "Interface",
+							Title = "Miranith",
 							Description = string.format("Set %q as autoload", name),
 						})
 					end,
@@ -4757,8 +4756,8 @@ function MiranithLib:Window(Settings)
 
 				autoloadLabel = configSection:Label({Text = "Autoload config: None"})
 
-				if isfile(MiranithLib.Folder .. "/settings/autoload.txt") then
-					local name = readfile(MiranithLib.Folder .. "/settings/autoload.txt")
+				if isfile(MacLib.Folder .. "/settings/autoload.txt") then
+					local name = readfile(MacLib.Folder .. "/settings/autoload.txt")
 					autoloadLabel:UpdateName("Autoload config: " .. name)
 				end
 			end
@@ -5270,7 +5269,7 @@ function MiranithLib:Window(Settings)
 		if onUnloadCallback then
 			onUnloadCallback()  
 		end
-		MiranithLib:Destroy()
+		macLib:Destroy()
 		unloaded = true
 	end
 
@@ -5301,7 +5300,7 @@ function MiranithLib:Window(Settings)
 	exit.MouseButton1Click:Connect(function()
 		WindowFunctions:Dialog({
 			Title = Settings.Title,
-			Description = "Are you sure you want to quit Miranith? Any unsaved configuration will be lost..",
+			Description = "Are you sure you want to quit Miranith? Any unsaved configuration will be lost.",
 			Buttons = {
 				{
 					Name = "Confirm",
@@ -5383,8 +5382,8 @@ function MiranithLib:Window(Settings)
 				}
 			end,
 			Load = function(Flag, data)
-				if MiranithLib.Options[Flag] and data.state then
-					MiranithLib.Options[Flag]:UpdateState(data.state)
+				if MacLib.Options[Flag] and data.state then
+					MacLib.Options[Flag]:UpdateState(data.state)
 				end
 			end
 		},
@@ -5397,8 +5396,8 @@ function MiranithLib:Window(Settings)
 				}
 			end,
 			Load = function(Flag, data)
-				if MiranithLib.Options[Flag] and data.value then
-					MiranithLib.Options[Flag]:UpdateValue(data.value)
+				if MacLib.Options[Flag] and data.value then
+					MacLib.Options[Flag]:UpdateValue(data.value)
 				end
 			end
 		},
@@ -5411,8 +5410,8 @@ function MiranithLib:Window(Settings)
 				}
 			end,
 			Load = function(Flag, data)
-				if MiranithLib.Options[Flag] and data.text and type(data.text) == "string" then
-					MiranithLib.Options[Flag]:UpdateText(data.text)
+				if MacLib.Options[Flag] and data.text and type(data.text) == "string" then
+					MacLib.Options[Flag]:UpdateText(data.text)
 				end
 			end
 		},
@@ -5425,8 +5424,8 @@ function MiranithLib:Window(Settings)
 				}
 			end,
 			Load = function(Flag, data)
-				if MiranithLib.Options[Flag] and data.bind then
-					MiranithLib.Options[Flag]:Bind(Enum.KeyCode[data.bind])
+				if MacLib.Options[Flag] and data.bind then
+					MacLib.Options[Flag]:Bind(Enum.KeyCode[data.bind])
 				end
 			end
 		},
@@ -5439,8 +5438,8 @@ function MiranithLib:Window(Settings)
 				}
 			end,
 			Load = function(Flag, data)
-				if MiranithLib.Options[Flag] and data.value then
-					MiranithLib.Options[Flag]:UpdateSelection(data.value)
+				if MacLib.Options[Flag] and data.value then
+					MacLib.Options[Flag]:UpdateSelection(data.value)
 				end
 			end
 		},
@@ -5465,10 +5464,10 @@ function MiranithLib:Window(Settings)
 					return Color3.new(r, g, b)
 				end
 
-				if MiranithLib.Options[Flag] and data.color then
-					MiranithLib.Options[Flag]:SetColor(HexToColor3(data.color)) 
+				if MacLib.Options[Flag] and data.color then
+					MacLib.Options[Flag]:SetColor(HexToColor3(data.color)) 
 					if data.alpha then
-						MiranithLib.Options[Flag]:SetAlpha(data.alpha)
+						MacLib.Options[Flag]:SetAlpha(data.alpha)
 					end
 				end
 			end
@@ -5479,8 +5478,8 @@ function MiranithLib:Window(Settings)
 		if isStudio or not (isfolder and makefolder) then return "Config system unavailable." end
 
 		local paths = {
-			MiranithLib.Folder,
-			MiranithLib.Folder .. "/settings"
+			MacLib.Folder,
+			MacLib.Folder .. "/settings"
 		}
 
 		for i = 1, #paths do
@@ -5491,48 +5490,48 @@ function MiranithLib:Window(Settings)
 		end
 	end
 
-	function MiranithLib:LoadAutoLoadConfig()
+	function MacLib:LoadAutoLoadConfig()
 		if isStudio or not (isfile and readfile) then return "Config system unavailable." end
 
-		if isfile(MiranithLib.Folder .. "/settings/autoload.txt") then
-			local name = readfile(MiranithLib.Folder .. "/settings/autoload.txt")
+		if isfile(MacLib.Folder .. "/settings/autoload.txt") then
+			local name = readfile(MacLib.Folder .. "/settings/autoload.txt")
 
-			local suc, err = MiranithLib:LoadConfig(name)
+			local suc, err = MacLib:LoadConfig(name)
 			if not suc then
 				WindowFunctions:Notify({
-					Title = "Interface",
+					Title = "Miranith",
 					Description = "Error loading autoload config: " .. err
 				})
 			end
 
 			WindowFunctions:Notify({
-				Title = "Interface",
+				Title = "Miranith",
 				Description = string.format("Autoloaded config: %q", name),
 			})
 		end
 	end
 
-	function MiranithLib:SetFolder(Folder)
+	function MacLib:SetFolder(Folder)
 		if isStudio then return "Config system unavailable." end
 
-		MiranithLib.Folder = Folder;
+		MacLib.Folder = Folder;
 		BuildFolderTree()
 	end
 
-	function MiranithLib:SaveConfig(Path)
+	function MacLib:SaveConfig(Path)
 		if isStudio or not writefile then return "Config system unavailable." end
 
 		if (not Path) then
 			return false, "Please select a config file."
 		end
 
-		local fullPath = MiranithLib.Folder .. "/settings/" .. Path .. ".json"
+		local fullPath = MacLib.Folder .. "/settings/" .. Path .. ".json"
 
 		local data = {
 			objects = {}
 		}
 
-		for flag, option in next, MiranithLib.Options do
+		for flag, option in next, MacLib.Options do
 			if not ClassParser[option.Class] then continue end
 			if option.IgnoreConfig then continue end
 
@@ -5548,14 +5547,14 @@ function MiranithLib:Window(Settings)
 		return true
 	end
 
-	function MiranithLib:LoadConfig(Path)
+	function MacLib:LoadConfig(Path)
 		if isStudio or not (isfile and readfile) then return "Config system unavailable." end
 
 		if (not Path) then
 			return false, "Please select a config file."
 		end
 
-		local file = MiranithLib.Folder .. "/settings/" .. Path .. ".json"
+		local file = MacLib.Folder .. "/settings/" .. Path .. ".json"
 		if not isfile(file) then return false, "Invalid file" end
 
 		local success, decoded = pcall(HttpService.JSONDecode, HttpService, readfile(file))
@@ -5572,10 +5571,10 @@ function MiranithLib:Window(Settings)
 		return true
 	end
 
-	function MiranithLib:RefreshConfigList()
+	function MacLib:RefreshConfigList()
 		if isStudio or not (isfolder and listfiles) then return "Config system unavailable." end
 
-		local list = (isfolder(MiranithLib.Folder) and isfolder(MiranithLib.Folder .. "/settings")) and listfiles(MiranithLib.Folder .. "/settings") or {}
+		local list = (isfolder(MacLib.Folder) and isfolder(MacLib.Folder .. "/settings")) and listfiles(MacLib.Folder .. "/settings") or {}
 
 		local out = {}
 		for i = 1, #list do
@@ -5602,7 +5601,7 @@ function MiranithLib:Window(Settings)
 		return out
 	end
 
-	MiranithLib.Enabled = false
+	macLib.Enabled = false
 
 	local assetList = {}
 	for _, assetId in pairs(assets) do
@@ -5610,15 +5609,15 @@ function MiranithLib:Window(Settings)
 	end
 
 	ContentProvider:PreloadAsync(assetList)
-	MiranithLib.Enabled = true
+	macLib.Enabled = true
 	windowState = true
 
 	return WindowFunctions
 end
 
-function MiranithLib:Demo()
-	local Window = MiranithLib:Window({
-		Title = "MiranithLib Demo",
+function MacLib:Demo()
+	local Window = MacLib:Window({
+		Title = "Maclib Demo",
 		Subtitle = "This is a subtitle.",
 		Size = UDim2.fromOffset(868, 650),
 		DragStyle = 1,
@@ -5868,7 +5867,7 @@ function MiranithLib:Demo()
 		Text = "Sub-Label. Lorem ipsum odor amet, consectetuer adipiscing elit."
 	})
 
-	MiranithLib:SetFolder("MiranithLib")
+	MacLib:SetFolder("Maclib")
 	tabs.Settings:InsertConfigSection("Left")
 
 	Window.onUnloaded(function()
@@ -5876,11 +5875,7 @@ function MiranithLib:Demo()
 	end)
 
 	tabs.Main:Select()
-	MiranithLib:LoadAutoLoadConfig()
+	MacLib:LoadAutoLoadConfig()
 end
 
-return MiranithLib
-end)
-if success then
-else
-end
+return MacLib
