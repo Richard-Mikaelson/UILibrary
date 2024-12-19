@@ -212,7 +212,7 @@ function MiranithLib:Window(Settings)
 	exit.TextColor3 = Color3.fromRGB(0, 0, 0)
 	exit.TextSize = 14
 	exit.AutoButtonColor = false
-	exit.BackgroundColor3 = Color3.fromRGB(250, 93, 86)
+	exit.BackgroundColor3 =  Color3.fromRGB(20, 20, 20)
 	exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	exit.BorderSizePixel = 0
 
