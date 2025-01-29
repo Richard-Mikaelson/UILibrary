@@ -2404,21 +2404,19 @@ function Luna:CreateWindow(WindowSettings)
 				end
 				if KeyFound then 
 					for _, instance in pairs(KeySystem:GetDescendants()) do
-						if instance.ClassName ~= "UICorner" and instance.ClassName ~= "UIPadding" then
-							if instance.ClassName ~= "UIStroke" then
-								tween(instance, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "ImageButton" then
-								tween(instance, {ImageTransparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "TextLabel" then
-								tween(instance, {TextTransparency = 1}, nil,TweenInfo.new(0.4, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "UIStroke" then
-								tween(instance, {Transparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
-							end
-						end
-					end
+                                         if instance:IsA("GuiObject") then -- Ellenőrizzük, hogy vizuális UI elem-e
+                                              if instance:IsA("ImageButton") then
+                                                tween(instance, {ImageTransparency = 1}, nil, TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
+                                                  elseif instance:IsA("TextLabel") then
+                                                    tween(instance, {TextTransparency = 1}, nil, TweenInfo.new(0.4, Enum.EasingStyle.Exponential))
+                                                  elseif instance:IsA("UIStroke") then
+                                                    tween(instance, {Transparency = 1}, nil, TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
+                                                  else
+                                                          tween(instance, {BackgroundTransparency = 1}, nil, TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
+                                                    end
+                                              end
+                                         end
+
 					tween(KeySystem, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
 					task.wait(0.51)
 					Passthrough = true
